@@ -14,26 +14,22 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+namespace tool_seo\local\hook;
+
 /**
- * Hook callbacks for seo
+ * Hook for after_config
  *
  * @package   tool_seo
- * @author    Benjamin Walker (benjaminwalker@catalyst-au.net)
- * @copyright 2024 Catalyst IT
+ * @author    Matthew Hilton <matthewhilton@catalyst-au.net>
+ * @copyright 2025 Catalyst IT
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-defined('MOODLE_INTERNAL') || die();
-
-$callbacks = [
-    [
-        'hook' => core\hook\output\before_standard_head_html_generation::class,
-        'callback' => 'tool_seo\local\hook\output\before_standard_head_html_generation::callback',
-        'priority' => 0,
-    ],
-    [
-        'hook' => \core\hook\after_config::class,
-        'callback' => 'tool_seo\local\hook\after_config::callback',
-        'priority' => 0,
-    ],
-];
+class after_config {
+    /**
+     * Callback called after_config
+     * @param \core\hook\after_config $hook hook data (unused)
+     */
+    public static function callback(\core\hook\after_config $hook): void {
+        \tool_seo\robots::serve();
+    }
+}
