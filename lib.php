@@ -21,10 +21,9 @@
  * @copyright  2019 Andrew Madden <andrewmadden@catalyst-au.net>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+use tool_seo\local\seo;
 
 defined('MOODLE_INTERNAL') || die();
-
-require_once(__DIR__ . '/locallib.php');
 
 /**
  * Callback that adds a custom html header tag to each page.
@@ -36,7 +35,7 @@ function tool_seo_before_standard_html_head() {
     global $PAGE;
 
     // If URL should not be indexed, add the noindex meta tag to page.
-    if (tool_seo_is_url_indexable($PAGE->url->get_path()) == false) {
+    if (!seo::is_url_indexable($PAGE->url->get_path())) {
         return '<meta name="robots" content="noindex, nofollow" />';
     }
 

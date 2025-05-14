@@ -25,6 +25,8 @@
 
 namespace tool_seo;
 
+use tool_seo\local\seo;
+
 /**
  * Test case class for the noindex tool.
  *
@@ -33,8 +35,11 @@ namespace tool_seo;
  * @copyright  2019 Catalyst IT
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class noindex_test extends \advanced_testcase {
+final class noindex_test extends \advanced_testcase {
 
+    /**
+     * Sets up test.
+     */
     protected function setUp(): void {
         parent::setUp();
         // Set up non-indexable array in config.
@@ -53,13 +58,11 @@ class noindex_test extends \advanced_testcase {
      * @dataProvider get_noindex_url_testcases
      * @param string $url A URL path representing a moodle page url.
      * @param bool $expected True if the URL should be indexable.
+     * @covers \tool_seo\local\seo::is_url_indexable
      */
-    public function test_nonindexable_url_configuration($url, $expected) {
+    public function test_nonindexable_url_configuration($url, $expected): void {
         $this->resetAfterTest(true);
-
-        require_once(__DIR__ . '/../locallib.php');
-        $result = tool_seo_is_url_indexable($url);
-
+        $result = seo::is_url_indexable($url);
         $this->assertEquals($expected, $result);
     }
 
@@ -69,14 +72,12 @@ class noindex_test extends \advanced_testcase {
      * @dataProvider get_noindex_url_testcases
      * @param string $url A URL path representing a moodle page url.
      * @param bool $expected True if the URL should be indexable.
+     * @covers \tool_seo\local\seo::is_url_indexable
      */
-    public function test_empty_configuration($url, $expected) {
+    public function test_empty_configuration($url, $expected): void {
         $this->resetAfterTest(true);
         set_config('nonindexable', "", 'tool_seo');
-
-        require_once(__DIR__ . '/../locallib.php');
-        $result = tool_seo_is_url_indexable($url);
-
+        $result = seo::is_url_indexable($url);
         $this->assertTrue($result);
     }
 
@@ -85,7 +86,7 @@ class noindex_test extends \advanced_testcase {
      *
      * @return array
      */
-    public function get_noindex_url_testcases() {
+    public static function get_noindex_url_testcases(): array {
         return [
             // Exact matches.
             'Login URL' => ['/login/index.php', false],
