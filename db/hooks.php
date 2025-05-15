@@ -31,4 +31,9 @@ $callbacks = [
         'callback' => 'tool_seo\local\hook\output\before_standard_head_html_generation::callback',
         'priority' => 0,
     ],
+    [
+        'hook' => \core\hook\after_config::class,
+        'callback' => 'tool_seo\local\hook\after_config::callback',
+        'priority' => 0,
+    ],
 ];

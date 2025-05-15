@@ -16,6 +16,8 @@
 
 namespace tool_seo\local\hook\output;
 
+use tool_seo\local\seo;
+
 /**
  * Allows plugins to add any elements to the page <head> html tag
  *
@@ -29,13 +31,13 @@ class before_standard_head_html_generation {
     /**
      * Callback that adds a custom html header tag to each page.
      *
-     * @param \core\hook\output\standard_head_html_prepend $hook
+     * @param \core\hook\output\before_standard_head_html_generation $hook
      */
     public static function callback(\core\hook\output\before_standard_head_html_generation $hook): void {
         GLOBAL $PAGE;
 
         // If URL should not be indexed, add the noindex meta tag to page.
-        if (tool_seo_is_url_indexable($PAGE->url->get_path()) == false) {
+        if (seo::is_url_indexable($PAGE->url->get_path()) == false) {
             $hook->add_html('<meta name="robots" content="noindex, nofollow" />');
         }
     }

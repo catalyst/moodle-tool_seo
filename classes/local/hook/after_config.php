@@ -14,19 +14,22 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+namespace tool_seo\local\hook;
+
 /**
- * Version details.
+ * Hook for after_config
  *
- * @package    tool_seo
- * @copyright  2019 Andrew Madden <andrewmadden@catalyst-au.net>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   tool_seo
+ * @author    Matthew Hilton <matthewhilton@catalyst-au.net>
+ * @copyright 2025 Catalyst IT
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-defined('MOODLE_INTERNAL') || die();
-
-$plugin->version = 2025051500;
-$plugin->release = 2025051500; // Match release exactly to version.
-$plugin->requires = 2024100700; // Moodle 4.5.
-$plugin->component = 'tool_seo';
-$plugin->maturity  = MATURITY_STABLE;
-$plugin->supported = [405, 409];     // Supports Moodle 4.5 or later.
+class after_config {
+    /**
+     * Callback called after_config
+     * @param \core\hook\after_config $hook hook data (unused)
+     */
+    public static function callback(\core\hook\after_config $hook): void {
+        \tool_seo\robots::serve();
+    }
+}

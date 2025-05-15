@@ -23,14 +23,9 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'SEO';
-
-// Settings.
 $string['nonindexable'] = 'Include URLs not to be indexed by search engines.';
 $string['nonindexable_help'] = 'List of URLs that will not be indexed and profiled by search engines. Enter each URL on a new line.';
+$string['pluginname'] = 'SEO';
+$string['privacy:metadata'] = 'The SEO plugin does not store any personal data.';
 $string['robotstxt'] = 'robots.txt';
 $string['robotstxt_help'] = 'The raw robots.txt file can be entered here. For this to work you must have Moodle setup to handle error pages.';
-
-// Privacy.
-$string['privacy:metadata'] = 'The SEO plugin does not store any personal data.';
-
