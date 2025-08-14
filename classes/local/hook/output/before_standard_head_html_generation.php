@@ -34,9 +34,7 @@ class before_standard_head_html_generation {
      * @param \core\hook\output\before_standard_head_html_generation $hook
      */
     public static function callback(\core\hook\output\before_standard_head_html_generation $hook): void {
-        global $PAGE, $CFG;
-
-        require_once($CFG->dirroot . '/admin/tool/seo/lib.php');
+        GLOBAL $PAGE;
 
         // If URL should not be indexed, add the noindex meta tag to page.
         if (seo::is_url_indexable($PAGE->url->get_path()) == false) {
