@@ -24,9 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2024021902;
-$plugin->release = 2024021902; // Match release exactly to version.
+$plugin->version = 2024021903;
+$plugin->release = 2024021903; // Match release exactly to version.
 $plugin->requires = 2022112800; // Moodle 4.1.
 $plugin->component = 'tool_seo';
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->supported = [401, 403];     // Supports Moodle 4.1 or later.
+$plugin->supported = [401, 404];     // Supports Moodle 4.1 or later.
