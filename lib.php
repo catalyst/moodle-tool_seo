@@ -50,4 +50,3 @@ function tool_seo_before_standard_html_head() {
 function tool_seo_after_config() {
     \tool_seo\robots::serve();
 }
-
