@@ -20,7 +20,8 @@ namespace tool_seo\local\hook;
  * Hook callback to serve robots.txt if not found.
  *
  * @package   tool_seo
- * @copyright 2024 Catalyst IT
+ * @author    Brendan Heywood (brendan@catalyst-au.net)
+ * @copyright 2026 Catalyst IT
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class after_config {
