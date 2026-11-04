@@ -51,3 +51,11 @@ function tool_seo_after_config() {
     \tool_seo\robots::serve();
 }
 
+/**
+ * Adds checks to the performance report.
+ *
+ * @return array of check objects
+ */
+function tool_seo_performance_checks(): array {
+    return [new \tool_seo\check\robotstxt()];
+}
