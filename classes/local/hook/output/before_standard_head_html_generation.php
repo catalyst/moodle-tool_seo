@@ -27,14 +27,13 @@ use tool_seo\local\seo;
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class before_standard_head_html_generation {
-
     /**
      * Callback that adds a custom html header tag to each page.
      *
      * @param \core\hook\output\before_standard_head_html_generation $hook
      */
     public static function callback(\core\hook\output\before_standard_head_html_generation $hook): void {
-        GLOBAL $PAGE;
+        global $PAGE;
 
         // If URL should not be indexed, add the noindex meta tag to page.
         if (seo::is_url_indexable($PAGE->url->get_path()) == false) {

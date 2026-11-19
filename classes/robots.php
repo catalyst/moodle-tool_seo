@@ -33,14 +33,13 @@ namespace tool_seo;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class robots {
-
     /**
      * This serves requests for robots.txt file.
      */
     public static function serve() {
         global $ME;
 
-        if ($ME !== '/robots.txt' ) {
+        if ($ME !== '/robots.txt') {
             return;
         }
 
