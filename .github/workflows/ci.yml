@@ -10,5 +10,4 @@ jobs:
     permissions:
       contents: write
     with:
-      disable_behat: true
       disable_grunt: true

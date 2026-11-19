@@ -42,7 +42,7 @@ if ($hassiteconfig) {
         $settings->add(new admin_setting_configtextarea(
             'tool_seo/robotstxt',
             new lang_string('robotstxt', 'tool_seo'),
-            new lang_string('robotstxt_help', 'tool_seo'),
+            new lang_string('robotstxt_help', 'tool_seo', (new moodle_url('/robots.txt'))->out()),
             ''
         ));
     }

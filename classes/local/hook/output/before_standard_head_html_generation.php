@@ -36,7 +36,7 @@ class before_standard_head_html_generation {
         global $PAGE;
 
         // If URL should not be indexed, add the noindex meta tag to page.
-        if (seo::is_url_indexable($PAGE->url->get_path()) == false) {
+        if (!seo::is_url_indexable($PAGE->url->get_path())) {
             $hook->add_html('<meta name="robots" content="noindex, nofollow" />');
         }
     }
